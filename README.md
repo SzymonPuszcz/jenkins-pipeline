@@ -7,3 +7,4 @@
 3. Wejdź na http://localhost:9090 i wklej hasło
 4. Zainstaluj sugerowane wtyczki
 5. Stwórz użytkownika admin
+
