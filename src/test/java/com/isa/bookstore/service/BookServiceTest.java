@@ -3,33 +3,25 @@ package com.isa.bookstore.service;
 import com.isa.bookstore.model.Book;
 import com.isa.bookstore.repository.BookRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
-import java.util.Optional;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@SpringBootTest
 class BookServiceTest {
-
-    @Autowired
-    private BookService bookService;
-
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository = mock(BookRepository.class);
+    private final BookService bookService = new BookService(bookRepository);
 
     @Test
-    public void givenTitle_whenSaveBook_thenBookIsSavedInRepository() {
+    public void givenBookName_whenCreateBook_thenSaveRepositoryIsCalled() {
         // given
-        String title = "1984";
+        String title = "Gone with the wind";
+        when(bookRepository.save(any())).thenReturn(mock(Book.class));
 
-        // when
-        Book savedBook = bookService.createBook(title);
+        //when
+        bookService.createBook(title);
 
         // then
-        Optional<Book> findedBook = bookRepository.findById(savedBook.getId());
-        assertEquals(title, findedBook.get().getTitle());
+        verify(bookRepository).save(any());
     }
+
 }
