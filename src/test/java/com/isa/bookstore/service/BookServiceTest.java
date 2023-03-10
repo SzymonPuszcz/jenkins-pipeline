@@ -21,7 +21,22 @@ class BookServiceTest {
         bookService.createBook(title);
 
         // then
+//        verify(bookRepository).save(any());
+        verifyNoInteractions(bookRepository);
+    }
+
+    @Test
+    public void givenBookName_whenCreateBook_thenSaveRepositoryIsCalled2() {
+        // given
+        String title = "Gone with the wind";
+        when(bookRepository.save(any())).thenReturn(mock(Book.class));
+
+        //when
+        bookService.createBook(title);
+
+        // then
         verify(bookRepository).save(any());
+//        verifyNoInteractions(bookRepository);
     }
 
 }
