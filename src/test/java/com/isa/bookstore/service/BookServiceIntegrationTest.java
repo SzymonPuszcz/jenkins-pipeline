@@ -9,9 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-class BookServiceIT {
+class BookServiceIntegrationTest {
 
     @Autowired
     private BookService bookService;
@@ -30,5 +31,14 @@ class BookServiceIT {
         // then
         Optional<Book> findedBook = bookRepository.findById(savedBook.getId());
         assertEquals(title, findedBook.get().getTitle());
+    }
+
+    @Test
+    public void givenNullTitle_whenSaveBook_thenThrowIllegalArgumentException() {
+        // given
+        String title = null;
+
+        // when & then
+        assertThrows(IllegalArgumentException.class, () -> bookService.createBook(title));
     }
 }
