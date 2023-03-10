@@ -2,21 +2,9 @@ pipeline {
     agent any
     tools {
         maven "3.8.7"
-        jdk "17.0.6"
+        jdk "17"
     }
 
-    triggers {
-        // Trigger the pipeline whenever a commit is made to the specified branch
-        pollSCM('*/5 * * * *') // check for changes every 5 minutes
-        ignorePostCommitHooks(true)
-        changeset {
-            // Only build when there are new changes
-            compareRemote {
-                // Limit the number of changes to 1 (i.e., the latest commit)
-                max(1)
-            }
-        }
-    }
     stages {
         stage('Compile') {
             steps {
