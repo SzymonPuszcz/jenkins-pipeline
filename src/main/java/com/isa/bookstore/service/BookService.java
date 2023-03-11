@@ -13,6 +13,7 @@ public class BookService {
     }
 
     public Book createBook(String title) {
+        if(title == null) throw new IllegalArgumentException();
         Book book = new Book();
         book.setTitle(title);
 
