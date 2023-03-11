@@ -24,7 +24,7 @@ pipeline {
     }
    post {
             always {
-                             mail to: "testmm@testmm.com",
+                             mail to: "testmm@test.com",
                        subject: "temat",
                          body: "tresc"
              }
