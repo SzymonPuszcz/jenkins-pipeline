@@ -34,16 +34,11 @@ class BookServiceIntegrationTest {
     }
 
     @Test
-    public void givenNullTitle_whenSaveBook_thenThrowIllegalArgumentException() {
+    public void givenNullTitle_whenSaveBook_thenThrowIllegalArgumentException()  {
         // given
         String title = null;
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            if (title == null) {
-                throw new IllegalArgumentException("Book title cannot be null");
-            }
-            bookService.createBook(title);
-        });
+        assertThrows(IllegalArgumentException.class, () -> bookService.createBook(title));
     }
 }

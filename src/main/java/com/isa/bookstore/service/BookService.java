@@ -13,10 +13,13 @@ public class BookService {
     }
 
     public Book createBook(String title) {
+        if (title == null) {
+            throw new IllegalArgumentException("Title cannot be null");
+        }
         Book book = new Book();
         book.setTitle(title);
-
         bookRepository.save(book);
         return book;
     }
 }
+
