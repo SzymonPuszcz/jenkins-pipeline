@@ -41,4 +41,5 @@ class BookServiceIntegrationTest {
         // when & then
         assertThrows(IllegalArgumentException.class, () -> bookService.createBook(title));
     }
+
 }
