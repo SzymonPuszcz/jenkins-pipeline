@@ -22,11 +22,11 @@ pipeline {
             }
         }
     }
-   // post {
-//             always {
-//                 mail to: "test@example.com",
-//                         subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-//                         body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
-//             }
-//         }
+   post {
+            always {
+                             mail to: "testmm@testmm.com",
+                       subject: "temat",
+                         body: "tresc"
+             }
+         }
  }
