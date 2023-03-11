@@ -29,8 +29,11 @@ public class Book {
     }
 
     public void setTitle(String title) {
+        if (title==null){
+            throw new NullPointerException();
+        }else {
         this.title = title;
-    }
+    }}
 
     @Override
     public boolean equals(Object o) {
