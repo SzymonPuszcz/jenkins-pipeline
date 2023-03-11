@@ -20,9 +20,15 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-            mail to: 'hello@hello.yeah',
-                  subject: 'temat',
-                  body: 'no i gitara'
+
         }
+
     }
+    post {
+                    always {
+                        mail to: 'hello@hello.yeah',
+                                          subject: 'temat',
+                                          body: 'no i gitara'
+                    }
+                }
 }
