@@ -22,7 +22,7 @@ pipeline {
             }
         }
     }
-    post {
+   // post {
 //             always {
 //                 mail to: "test@example.com",
 //                         subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",

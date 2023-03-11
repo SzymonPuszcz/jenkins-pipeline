@@ -30,7 +30,7 @@ public class Book {
 
     public void setTitle(String title) {
         if (title==null){
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }else {
         this.title = title;
     }}
